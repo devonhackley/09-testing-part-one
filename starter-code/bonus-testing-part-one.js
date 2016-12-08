@@ -20,10 +20,10 @@ var assert = require('./vendor/assert');
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = '';
 
 function testRicksFaveAnimal() {
-  assert ();
+  assert (ricksFaveAnimal, 'ricksFaveAnimal exists!', 'ricksFaveAnimal is ' + typeof ricksFaveAnimal);
 }
 
 testRicksFaveAnimal();
@@ -39,6 +39,8 @@ animals. You only have time for one. How do you choose just one?!
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
 var nextAnimal;
 
+
+
 /* NOTE:
 Write a test FIRST! Use the 'assert()' function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
@@ -52,7 +54,7 @@ message. */
 function testWhichAnimal() {
   // TODO: Complete this assert function.
   // Don't forget your three arguments!
-  assert();
+  assert(favoriteAnimals.indexOf(nextAnimal) > -1, nextAnimal + ' does exist in the array', nextAnimal +' is not in the array');
 };
 
 testWhichAnimal();
@@ -62,3 +64,7 @@ nextAnimal variable ... then invoke your test!
 When ready, execute this program in your terminal with node
 (node bonus-testing-part-one)  :-)
 Your code begins on the next line: */
+
+var randomAnimal = Math.floor(Math.random() * favoriteAnimals.length);
+nextAnimal = favoriteAnimals[randomAnimal];
+testWhichAnimal();
